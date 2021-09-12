@@ -1,0 +1,32 @@
+.single-item {
+  margin: 0.25rem;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 3px solid #333;
+  box-shadow: 0 0 10px 5px #333;
+  border-radius: 10px;
+}
+
+.ids {
+  margin: 1.5rem;
+  width: 2em;
+  height: 2em;
+  font-size: 2em;
+  border-radius: 50%;
+  background-color: hsl(200, 100%, 40%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-data {
+  width: 80vw;
+}
+
+.title {
+  margin: 0.5rem;
+}
+
+.body {
+  margin: 0.75rem;
+}
