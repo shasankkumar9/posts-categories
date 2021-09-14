@@ -7,7 +7,7 @@ const AppContext = React.createContext()
 const AppProvider = ({ children }) => {
   const [results, setResults] = useState([])
   const [loading, setLoading] = useState(true)
-  const [category, setCategory] = useState('all')
+  const [category, setCategory] = useState(1)
 
   const fetchResult = useCallback(async () => {
     setLoading(true)
@@ -20,8 +20,7 @@ const AppProvider = ({ children }) => {
       } else {
         setResults([])
       }
-            setLoading(false)
-
+      setLoading(false)
     } catch (err) {
       console.log(err)
       setLoading(false)

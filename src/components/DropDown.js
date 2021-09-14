@@ -6,9 +6,9 @@ import { useGlobalContext } from '../context'
 function DropDown() {
   const { setCategory } = useGlobalContext()
   const options = [
-    { value: 'all', label: 'All' },
-    { value: 'five', label: 'Five' },
-    { value: 'two', label: 'Two' },
+    { value: 1, label: 'All' },
+    { value: 5, label: 'Five' },
+    { value: 2, label: 'Two' },
   ]
   return (
     <div className='dropdown-parent'>

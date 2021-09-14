@@ -14,29 +14,32 @@ function ResultList() {
     return <h2 className='no-results'>No data found!</h2>
   }
 
-  function mapItems(item) {
-    return <SingleInfo key={item.id} {...item} />
+  function mapItems(items, category) {
+    return (
+      <div>
+        {items
+          .filter((data) => data.id % category === 0)
+          .map((data) => (
+            <SingleInfo key={data.id} {...data} />
+          ))}
+      </div>
+    )
   }
 
-  if (category === 'all') {
-    return <div>{results.map((data) => mapItems(data))}</div>
-  } else if (category === 'five') {
-    return (
-      <div>
-        {results
-          .filter((data) => data.id % 5 === 0)
-          .map((data) => mapItems(data))}
-      </div>
-    )
-  } else if (category === 'two') {
-    return (
-      <div>
-        {results
-          .filter((data) => data.id % 2 === 0)
-          .map((data) => mapItems(data))}
-      </div>
-    )
+  function collectCategorized(category) {
+    switch (category) {
+      case 1:
+        return mapItems(results, 1)
+      case 2:
+        return mapItems(results, 2)
+      case 5:
+        return mapItems(results, 5)
+      default:
+        return null
+    }
   }
+
+  return collectCategorized(category)
 }
 
 export default ResultList

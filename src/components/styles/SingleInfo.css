@@ -30,3 +30,7 @@
 .body {
   margin: 0.75rem;
 }
+
+.body::first-letter {
+  text-transform: uppercase;
+}
