@@ -24,10 +24,10 @@ const AppProvider = ({ children }) => {
       console.log(err)
       setLoading(false)
     }
-  }, [category])
+  }, [])
   useEffect(() => {
     fetchResult()
-  }, [category, fetchResult])
+  }, [fetchResult])
   return (
     <AppContext.Provider value={{ loading, results, category, setCategory }}>
       {children}
