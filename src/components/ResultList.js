@@ -3,6 +3,7 @@ import Loading from './Loading'
 import { useGlobalContext } from '../context'
 import SingleInfo from './SingleInfo'
 import './styles/ResultList.css'
+import Error from './Error'
 
 function mapItems(items, category) {
   return (
@@ -17,13 +18,15 @@ function mapItems(items, category) {
 }
 
 function ResultList() {
-  const { results, loading, category } = useGlobalContext()
+  const { results, loading, category, setError, setLoading } =
+    useGlobalContext()
 
   if (loading) {
     return <Loading />
   }
   if (results.length < 1) {
-    return <h2 className='no-results'>No data found!</h2>
+    setLoading(false)
+    setError(true)
   }
 
   return mapItems(results, category)
