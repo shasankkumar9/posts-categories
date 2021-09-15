@@ -4,19 +4,6 @@ import { useGlobalContext } from '../context'
 import SingleInfo from './SingleInfo'
 import './styles/ResultList.css'
 
-// function collectCategorized(dataArray, category) {
-//   switch (category) {
-//     case 1:
-//       return mapItems(dataArray, category)
-//     case 2:
-//       return mapItems(dataArray, category)
-//     case 5:
-//       return mapItems(dataArray, category)
-//     default:
-//       return null
-//   }
-// }
-
 function mapItems(items, category) {
   return (
     <div>
