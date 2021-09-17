@@ -5,7 +5,7 @@ function Error() {
   return (
     <>
       <img src={ErrorLogo} alt='Error Logo' className='error-svg' />
-      <h2 classNam='error-text'>Something went wrong!</h2>
+      <h2 className='error-text'>Something went wrong!</h2>
     </>
   )
 }

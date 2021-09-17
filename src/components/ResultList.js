@@ -1,35 +1,17 @@
 import React from 'react'
-import Loading from './Loading'
-import { useGlobalContext } from '../context'
 import SingleInfo from './SingleInfo'
 import './styles/ResultList.css'
-import Error from './Error'
 
-function mapItems(items, category) {
+function ResultList({ data, category }) {
   return (
     <div>
-      {items
-        .filter((data) => data.id % category === 0)
-        .map((data) => (
-          <SingleInfo key={data.id} {...data} />
+      {data
+        .filter((item) => item.id % category === 0)
+        .map((item) => (
+          <SingleInfo key={item.id} {...item} />
         ))}
     </div>
   )
-}
-
-function ResultList() {
-  const { results, loading, category, setError, setLoading } =
-    useGlobalContext()
-
-  if (loading) {
-    return <Loading />
-  }
-  if (results.length < 1) {
-    setLoading(false)
-    setError(true)
-  }
-
-  return mapItems(results, category)
 }
 
 export default ResultList

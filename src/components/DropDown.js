@@ -1,10 +1,8 @@
 import React from 'react'
 import Select from 'react-select'
 import './styles/DropDown.css'
-import { useGlobalContext } from '../context'
 
-function DropDown() {
-  const { setCategory } = useGlobalContext()
+function DropDown({ setCategory }) {
   const options = [
     { value: 1, label: 'All' },
     { value: 5, label: 'Five' },
