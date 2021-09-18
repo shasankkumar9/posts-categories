@@ -60,7 +60,6 @@ const useStyles = makeStyles({
     margin: 0,
     '& a': {
       fontSize: 18,
-      height: '100%',
       textDecoration: 'none',
       color: 'white',
       padding: 18,
@@ -69,6 +68,12 @@ const useStyles = makeStyles({
       alignItems: 'center',
       '&:hover': {
         backgroundColor: 'rgb(106, 174, 237)',
+      },
+      '&:active': {
+        backgroundColor: 'rgb(13, 82, 147)',
+      },
+      '&:click': {
+        backgroundColor: 'rgb(13, 82, 147)',
       },
     },
   },
