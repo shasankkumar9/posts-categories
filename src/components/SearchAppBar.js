@@ -1,17 +1,17 @@
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 import { styled, alpha } from '@mui/material/styles'
+import { makeStyles } from '@mui/styles'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
-import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import InputBase from '@mui/material/InputBase'
-import MenuIcon from '@mui/icons-material/Menu'
+import CategoryRoundedIcon from '@mui/icons-material/CategoryRounded'
 import SearchIcon from '@mui/icons-material/Search'
-import FormControl from '@mui/material/FormControl'
-import InputLabel from '@mui/material/InputLabel'
-import MenuItem from '@mui/material/MenuItem'
-import Select from '@mui/material/Select'
+import Button from '@mui/material/Button'
+import ButtonGroup from '@mui/material/ButtonGroup'
+import { pink } from '@mui/material/colors'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -55,46 +55,52 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }))
 
-export default function SearchAppBar({
-  category,
-  setCategory,
-  searchTerm,
-  setSearchTerm,
-}) {
+const useStyles = makeStyles({
+  btngrp: {
+    margin: 0,
+    '& a': {
+      fontSize: 18,
+      height: '100%',
+      textDecoration: 'none',
+      color: 'white',
+      padding: 18,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      '&:hover': {
+        backgroundColor: 'rgb(106, 174, 237)',
+      },
+    },
+  },
+})
+
+export default function SearchAppBar({ searchTerm, setSearchTerm }) {
+  const classes = useStyles()
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position='static'>
         <Toolbar>
-          <IconButton
-            size='large'
-            edge='start'
-            color='inherit'
-            aria-label='open drawer'
-            sx={{ mr: 2 }}>
-            <MenuIcon />
-          </IconButton>
+          <CategoryRoundedIcon fontSize='large' sx={{ color: pink[500] }} />
           <Typography
             variant='h6'
             noWrap
             component='div'
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
-            Post Categorized
+            sx={{
+              flexGrow: 1,
+              marginLeft: 2,
+              display: { xs: 'none', sm: 'block' },
+            }}>
+            Posts Categorized
           </Typography>
-          <FormControl
-            variant='standard'
-            sx={{ m: 1, minWidth: 120 }}>
-            <InputLabel id='demo-simple-select-label'>Category</InputLabel>
-            <Select
-              labelId='demo-simple-select-label'
-              id='demo-simple-select'
-              value={category}
-              label='Age'
-              onChange={(e) => setCategory(e.target.value)}>
-              <MenuItem value={1}>All</MenuItem>
-              <MenuItem value={2}>Two</MenuItem>
-              <MenuItem value={5}>Five</MenuItem>
-            </Select>
-          </FormControl>
+          <ButtonGroup
+            variant='text'
+            aria-label='text button group'
+            className={classes.btngrp}
+            sx={{ margin: 0 }}>
+            <Link to='/'>All</Link>
+            <Link to='/two'>Two</Link>
+            <Link to='five'>Five</Link>
+          </ButtonGroup>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />

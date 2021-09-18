@@ -2,32 +2,16 @@
   margin: 0.25rem;
   display: flex;
   flex-direction: row;
-  border-bottom: 3px solid #333;
-  border-radius: 5px;
 }
 
 .ids {
-  margin: 1.5rem;
-  width: 2em;
-  height: 2em;
+  margin: 2rem;
+  width: 2.5em;
+  height: 2.5em;
   font-size: 2em;
-  border-radius: 50%;
-  background-color: hsl(200, 100%, 40%);
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.text-data {
-  width: 80vw;
-}
-
-.title {
-  margin: 0.5rem;
-}
-
-.body {
-  margin: 0.75rem;
 }
 
 .body::first-letter {
